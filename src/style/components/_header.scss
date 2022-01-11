@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: $secondaryColor;
+  padding: 17px 30px;
+
+  &__nav {
+    width: 75%;
+  }
+
+  &__navlist {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: 500;
+
+    li {
+      cursor: pointer;
+      text-decoration-line: none;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        transform: scale(1.055);
+        text-decoration-color: $primaryColor;
+        text-decoration-line: underline;
+      }
+    }
+  }
+}
