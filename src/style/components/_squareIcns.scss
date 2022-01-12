@@ -1,0 +1,19 @@
+.squareIcn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 6px;
+}
+
+.squareIcn-aside {
+  width: 64px;
+  height: 64px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+    border: 2px solid $primaryColor;
+  }
+}

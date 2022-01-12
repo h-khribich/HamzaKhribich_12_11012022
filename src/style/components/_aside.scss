@@ -1,0 +1,28 @@
+.aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 1024px;
+  padding: 0 25px;
+  width: fit-content;
+  background-color: $secondaryColor;
+
+  &__icon-panel {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 20px;
+  }
+
+  &__copyright {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 60px 15px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+  }
+}
