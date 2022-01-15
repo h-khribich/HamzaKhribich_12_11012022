@@ -3,9 +3,8 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  height: 1024px;
   padding: 0 25px;
-  width: fit-content;
+  width: 115px;
   background-color: $secondaryColor;
 
   &__icon-panel {
@@ -20,9 +19,9 @@
   &__copyright {
     writing-mode: vertical-rl;
     transform: rotate(180deg);
-    padding: 60px 15px;
     font-size: 12px;
     font-weight: 500;
     color: white;
+    padding-top: 60px;
   }
 }

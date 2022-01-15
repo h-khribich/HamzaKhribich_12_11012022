@@ -1,9 +1,9 @@
 import React from "react";
 import SquareIcn from "./SquareIcn";
-import Meditating from "../assets/squareIcns/meditating.svg";
-import Swimming from "../assets/squareIcns/swimming.svg";
-import Biking from "../assets/squareIcns/biking.svg";
-import Lifting from "../assets/squareIcns/lifting.svg";
+import Meditating from "../assets/squareIcns/aside/meditating.svg";
+import Swimming from "../assets/squareIcns/aside/swimming.svg";
+import Biking from "../assets/squareIcns/aside/biking.svg";
+import Lifting from "../assets/squareIcns/aside/lifting.svg";
 
 const Aside = () => {
   return (

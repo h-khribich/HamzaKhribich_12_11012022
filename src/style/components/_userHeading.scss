@@ -1,0 +1,14 @@
+.userHeading {
+  &__greeting {
+    font-size: 48px;
+  }
+
+  &__name {
+    color: $primaryColor;
+  }
+
+  &__recap {
+    font-size: 18px;
+    margin: 30px 0;
+  }
+}

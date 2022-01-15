@@ -3,12 +3,6 @@
   justify-content: center;
   align-items: center;
   border-radius: 6px;
-}
-
-.squareIcn-aside {
-  width: 64px;
-  height: 64px;
-  background-color: white;
   cursor: pointer;
   transition: all 200ms ease-in-out;
 
@@ -16,4 +10,33 @@
     transform: scale(1.1);
     border: 2px solid $primaryColor;
   }
+}
+
+.squareIcn-aside {
+  width: 64px;
+  height: 64px;
+  background-color: white;
+}
+
+.squareIcn-keyData {
+  width: 60px;
+  height: 60px;
+  align-self: center;
+  margin: 0 30px;
+}
+
+.calories {
+  background-color: #ff000028;
+}
+
+.proteines {
+  background-color: #4ab7ff28;
+}
+
+.glucides {
+  background-color: #fdcd0c28;
+}
+
+.lipides {
+  background-color: #fd518228;
 }
