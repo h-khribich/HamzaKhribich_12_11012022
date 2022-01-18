@@ -6,6 +6,7 @@ import ChickenLogo from "../assets/squareIcns/keyData/chicken.svg";
 import AppleLogo from "../assets/squareIcns/keyData/apple.svg";
 import CheeseburgerLogo from "../assets/squareIcns/keyData/cheeseburger.svg";
 import SessionAvgGraph from "./SessionAvgGraph";
+import PerformanceGraph from "./PerformanceGraph";
 
 export const useFetch = (url) => {
   const [userData, setUserData] = useState(null);
@@ -37,6 +38,7 @@ const MainContentWrapper = () => {
           <div style={{ display: "flex" }}>
             <div>
               <SessionAvgGraph />
+              <PerformanceGraph />
             </div>
             <div className="keyData__wrapper">
               <KeyDataMetric
