@@ -1,5 +1,5 @@
 import React from "react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, Legend } from "recharts";
+import { LineChart, Line, YAxis, Tooltip } from "recharts";
 
 const data = [
   {
@@ -35,6 +35,10 @@ const data = [
 const SessionAvgGraph = () => {
   return (
     <div className="sessionAverageGraph">
+      <span className="sessionAverageGraph__legend">
+        Durée moyenne des sessions
+      </span>
+      <span className="sessionAverageGraph__label">L M M J V S D</span>
       <LineChart
         width={258}
         height={263}
@@ -47,34 +51,53 @@ const SessionAvgGraph = () => {
             <stop offset="100%" stopColor="white" stopOpacity={0.8} />
           </linearGradient>
         </defs>
-        <XAxis
-          dataKey="day"
-          tickLine={false}
-          minTickGap={1}
-          padding={{ left: 15, right: 15 }}
-          tick={{ fontSize: 12, fill: "white", opacity: ".5", dy: -10 }}
-          axisLine={false}
-          interval={"preserveStartEnd"}
-        />
         <YAxis
           dataKey="time"
           hide={true}
           type="number"
-          padding={{ bottom: 30, top: 30 }}
+          padding={{ bottom: 80, top: 30 }}
           domain={["dataMin", 100]}
         />
-        <Legend verticalAlign="top" value="Durée moyenne des sessions" />
-        <Tooltip />
+        <Tooltip
+          content={<CustomTooltip />}
+          cursor={{
+            stroke: "black",
+            strokeOpacity: 0.1,
+            strokeWidth: 60,
+            fill: "rgba(255, 255, 255, 0.1)",
+          }}
+        />
         <Line
           type="natural"
           dataKey="time"
           dot={false}
           strokeWidth={2}
           stroke="url(#line-color)"
+          activeDot={{
+            stroke: "white",
+            strokeOpacity: 0.2,
+            strokeWidth: 10,
+            fill: "white",
+            r: 5,
+          }}
         />
       </LineChart>
     </div>
   );
 };
+
+function CustomTooltip({ active, payload }) {
+  if (active) {
+    return (
+      <div className="sessionAverageGraph__tooltip">
+        <h4 className="sessionAverageGraph__value">
+          {payload[0].payload.time} min
+        </h4>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
 
 export default SessionAvgGraph;
