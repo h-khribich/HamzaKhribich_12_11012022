@@ -7,6 +7,7 @@ import AppleLogo from "../assets/squareIcns/keyData/apple.svg";
 import CheeseburgerLogo from "../assets/squareIcns/keyData/cheeseburger.svg";
 import SessionAvgGraph from "./SessionAvgGraph";
 import PerformanceGraph from "./PerformanceGraph";
+import ObjectiveGraph from "./ObjectiveGraph";
 
 export const useFetch = (url) => {
   const [userData, setUserData] = useState(null);
@@ -39,6 +40,7 @@ const MainContentWrapper = () => {
             <div>
               <SessionAvgGraph />
               <PerformanceGraph />
+              <ObjectiveGraph />
             </div>
             <div className="keyData__wrapper">
               <KeyDataMetric
