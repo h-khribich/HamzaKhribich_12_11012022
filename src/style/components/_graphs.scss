@@ -1,27 +1,15 @@
 // AVERAGE SESSIONS GRAPH
 .sessionAverageGraph {
-  background-color: $primaryColor;
-  border-radius: 5px;
-
-  &__legend {
-    position: absolute;
-    font-size: 15px;
-    font-weight: 500;
-    width: 180px;
-    padding: 30px;
-    opacity: 0.5;
-    color: white;
-    line-height: 24px;
-  }
-
   &__label {
     position: absolute;
     color: white;
+    z-index: 2;
+    margin-top: 233px;
+    margin-left: 19px;
     opacity: 0.5;
-    top: 525px;
-    left: 245px;
-    width: 245px;
-    letter-spacing: 10px;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: 12px;
   }
 
   &__tooltip {
@@ -48,8 +36,11 @@
   .recharts-polar-grid-angle {
     display: none;
   }
+}
 
-  tspan {
-    rotate: -20;
+.graphs {
+  &__smaller-group {
+    display: flex;
+    justify-content: space-between;
   }
 }

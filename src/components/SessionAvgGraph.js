@@ -34,17 +34,39 @@ const data = [
 
 const SessionAvgGraph = () => {
   return (
-    <div className="sessionAverageGraph">
-      <span className="sessionAverageGraph__legend">
-        Durée moyenne des sessions
-      </span>
+    <div className="sessionAverageGraph" style={{ width: "fit-content" }}>
       <span className="sessionAverageGraph__label">L M M J V S D</span>
       <LineChart
         width={258}
         height={263}
         data={data}
+        style={{ backgroundColor: "#FF0000", borderRadius: "5px" }}
         margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
       >
+        <text x="13%" y="17%">
+          <tspan
+            fill="white"
+            style={{
+              fontSize: "15px",
+              fontWeight: 500,
+              opacity: ".5",
+            }}
+          >
+            Durée moyenne des
+          </tspan>
+          <tspan
+            dy={23}
+            dx={-133}
+            fill="white"
+            style={{
+              fontSize: "15px",
+              fontWeight: 500,
+              opacity: ".5",
+            }}
+          >
+            sessions
+          </tspan>
+        </text>
         <defs>
           <linearGradient id="line-color">
             <stop offset="0%" stopColor="white" stopOpacity={0.4} />

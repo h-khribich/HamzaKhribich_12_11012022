@@ -8,6 +8,7 @@ import CheeseburgerLogo from "../assets/squareIcns/keyData/cheeseburger.svg";
 import SessionAvgGraph from "./SessionAvgGraph";
 import PerformanceGraph from "./PerformanceGraph";
 import ObjectiveGraph from "./ObjectiveGraph";
+import DailyActivityGraph from "./DailyActivityGraph";
 
 export const useFetch = (url) => {
   const [userData, setUserData] = useState(null);
@@ -37,10 +38,13 @@ const MainContentWrapper = () => {
         <div>
           <UserHeading name={userData.information.firstName} />
           <div style={{ display: "flex" }}>
-            <div>
-              <SessionAvgGraph />
-              <PerformanceGraph />
-              <ObjectiveGraph />
+            <div className="graphs__wrapper">
+              <DailyActivityGraph />
+              <div className="graphs__smaller-group">
+                <SessionAvgGraph />
+                <PerformanceGraph />
+                <ObjectiveGraph />
+              </div>
             </div>
             <div className="keyData__wrapper">
               <KeyDataMetric
