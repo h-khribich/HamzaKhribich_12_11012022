@@ -1,0 +1,14 @@
+.mainContent {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 60px 100px 90px;
+  }
+
+  &__graphs {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-between;
+  }
+}

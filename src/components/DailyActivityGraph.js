@@ -7,6 +7,7 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
 
 const data = [
@@ -64,15 +65,54 @@ const data = [
 
 const DailyActivityGraph = () => {
   return (
-    <div>
-      <BarChart width={835} height={320} data={data}>
-        <CartesianGrid strokeDasharray="1 1" />
-        <XAxis dataKey="day" />
-        <YAxis />
+    <div className="dailyActivityGraph">
+      <span className="dailyActivityGraph__label">Activité quotidienne</span>
+      <BarChart
+        width={780}
+        height={240}
+        data={data}
+        margin={{ top: 20, bottom: 30 }}
+      >
+        <CartesianGrid strokeDasharray="2 2" vertical={false} />
+        <XAxis
+          dataKey="day"
+          tickMargin={10}
+          tickLine={false}
+          stroke="#DEDEDE"
+          axisLine={true}
+          tick={{ fontSize: "14px", fill: "#9B9EAC" }}
+        />
+        <YAxis
+          orientation="right"
+          tickMargin={30}
+          tickCount={3}
+          axisLine={false}
+          tickLine={false}
+          type="number"
+          domain={["dataMin - 10", "auto"]}
+          tick={{ fontSize: "14px", fill: "#9B9EAC" }}
+        />
         <Tooltip />
-        <Legend />
-        <Bar dataKey="poids" fill="#282D30" />
-        <Bar dataKey="calories" fill="#E60000" />
+        <Legend
+          verticalAlign="top"
+          align="right"
+          iconSize={10}
+          chartHeight={30}
+        />
+        <Bar
+          dataKey="poids"
+          fill="#282D30"
+          barSize={7}
+          legendType="circle"
+          radius={[10, 10, 0, 0]}
+        />
+        <Bar
+          dataKey="calories"
+          fill="#E60000"
+          barSize={7}
+          legendType="circle"
+          radius={[10, 10, 0, 0]}
+        />
       </BarChart>
     </div>
   );

@@ -31,16 +31,16 @@ const MainContentWrapper = () => {
   const { userData, loading } = useFetch("/assets/DataMock.json");
 
   return (
-    <div className="mainContentWrapper">
+    <div className="mainContent__wrapper">
       {loading ? (
         <div>Loading...</div>
       ) : (
         <div>
           <UserHeading name={userData.information.firstName} />
-          <div style={{ display: "flex" }}>
-            <div className="graphs__wrapper">
+          <div className="mainContent__graphs">
+            <div className="mainGraphs__wrapper">
               <DailyActivityGraph />
-              <div className="graphs__smaller-group">
+              <div className="mainGraphs__smaller-group">
                 <SessionAvgGraph />
                 <PerformanceGraph />
                 <ObjectiveGraph />

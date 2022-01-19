@@ -38,7 +38,34 @@
   }
 }
 
-.graphs {
+// DAILY ACTIVITY GRAPH
+.dailyActivityGraph {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  width: 835px;
+  height: 320px;
+
+  &__label {
+    font-size: 15px;
+    font-weight: 500;
+    position: absolute;
+    margin-top: 35px;
+    margin-right: 630px;
+    align-self: flex-start;
+    color: #282d30;
+  }
+}
+
+.mainGraphs {
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
   &__smaller-group {
     display: flex;
     justify-content: space-between;
