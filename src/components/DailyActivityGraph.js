@@ -24,11 +24,11 @@ const data = [
   {
     day: 3,
     poids: 67,
-    calories: 72,
+    calories: 78,
   },
   {
     day: 4,
-    poids: 65,
+    poids: 62,
     calories: 45,
   },
   {
@@ -67,6 +67,39 @@ const DailyActivityGraph = () => {
   return (
     <div className="dailyActivityGraph">
       <span className="dailyActivityGraph__label">Activité quotidienne</span>
+      <div
+        style={{
+          position: "absolute",
+          marginBottom: "267px",
+          marginLeft: "500px",
+          display: "flex",
+        }}
+      >
+        <span style={{ fontSize: "13px", fontWeight: 500, color: "#74798C" }}>
+          <i
+            className="fas fa-circle fa-xs"
+            style={{
+              paddingRight: "13px",
+              color: "#282D30",
+            }}
+          ></i>
+          Poids (kg)
+        </span>
+        <span
+          style={{
+            fontSize: "13px",
+            marginLeft: "30px",
+            fontWeight: 500,
+            color: "#74798C",
+          }}
+        >
+          <i
+            className="fas fa-circle fa-xs"
+            style={{ paddingRight: "13px", color: "#E60000" }}
+          ></i>
+          Calories brûlées (kCal)
+        </span>
+      </div>
       <BarChart
         width={780}
         height={240}
@@ -93,12 +126,6 @@ const DailyActivityGraph = () => {
           tick={{ fontSize: "14px", fill: "#9B9EAC" }}
         />
         <Tooltip />
-        <Legend
-          verticalAlign="top"
-          align="right"
-          iconSize={10}
-          chartHeight={30}
-        />
         <Bar
           dataKey="poids"
           fill="#282D30"
