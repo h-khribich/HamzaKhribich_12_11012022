@@ -40,3 +40,10 @@
 .lipides {
   background-color: #fd518228;
 }
+
+// MEDIA QUERIES
+@media only screen and (max-width: 1410px) {
+  .squareIcn-keyData {
+    margin: 0 20px;
+  }
+}

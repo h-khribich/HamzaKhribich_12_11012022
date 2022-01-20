@@ -12,3 +12,24 @@
     justify-content: space-between;
   }
 }
+
+// MEDIA QUERIES
+@media only screen and (max-width: 1410px) {
+  .mainContent {
+    &__graphs {
+      flex-direction: column-reverse;
+    }
+  }
+}
+
+@media only screen and (max-width: 1160px) {
+  .mainContent__wrapper {
+    padding: 40px 60px 60px;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .mainContent__wrapper {
+    padding: 30px 35px 35px;
+  }
+}

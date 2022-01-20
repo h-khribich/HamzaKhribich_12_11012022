@@ -125,7 +125,7 @@ const DailyActivityGraph = () => {
           domain={["dataMin - 10", "auto"]}
           tick={{ fontSize: "14px", fill: "#9B9EAC" }}
         />
-        <Tooltip />
+        <Tooltip content={customTooltip} />
         <Bar
           dataKey="poids"
           fill="#282D30"
@@ -144,5 +144,22 @@ const DailyActivityGraph = () => {
     </div>
   );
 };
+
+function customTooltip({ active, payload }) {
+  if (active) {
+    return (
+      <div className="dailyActivityGraph__tooltip">
+        <h4 className="dailyActivityGraph__value">
+          {payload[0].payload.poids}kg
+        </h4>
+        <h4 className="dailyActivityGraph__value">
+          {payload[0].payload.calories}kCal
+        </h4>
+      </div>
+    );
+  } else {
+    return null;
+  }
+}
 
 export default DailyActivityGraph;

@@ -31,3 +31,21 @@
     color: #74798c;
   }
 }
+
+// MEDIA QUERIES
+@media only screen and (max-width: 1410px) {
+  .keyData {
+    &__wrapper {
+      flex-direction: row;
+    }
+
+    &__number {
+      font-size: 17px;
+    }
+
+    &__metric {
+      width: 200px;
+      height: 100px;
+    }
+  }
+}
