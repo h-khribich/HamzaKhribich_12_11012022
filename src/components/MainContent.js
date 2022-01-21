@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import KeyDataMetric from "./KeyDataMetric";
+import KeyDataMetric from "./graphs/KeyDataMetric";
 import UserHeading from "./UserHeading";
 import EnergyLogo from "../assets/squareIcns/keyData/energy.svg";
 import ChickenLogo from "../assets/squareIcns/keyData/chicken.svg";
 import AppleLogo from "../assets/squareIcns/keyData/apple.svg";
 import CheeseburgerLogo from "../assets/squareIcns/keyData/cheeseburger.svg";
-import SessionAvgGraph from "./SessionAvgGraph";
-import PerformanceGraph from "./PerformanceGraph";
-import ObjectiveGraph from "./ObjectiveGraph";
-import DailyActivityGraph from "./DailyActivityGraph";
+import SessionAvgGraph from "./graphs/SessionAvgGraph";
+import PerformanceGraph from "./graphs/PerformanceGraph";
+import ObjectiveGraph from "./graphs/ObjectiveGraph";
+import DailyActivityGraph from "./graphs/DailyActivityGraph";
 
 export const useFetch = (url) => {
   const [userData, setUserData] = useState(null);

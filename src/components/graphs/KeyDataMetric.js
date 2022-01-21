@@ -1,5 +1,5 @@
 import React from "react";
-import SquareIcn from "../components/SquareIcn";
+import SquareIcn from "../SquareIcn";
 
 const KeyDataMetric = (props) => {
   return (
