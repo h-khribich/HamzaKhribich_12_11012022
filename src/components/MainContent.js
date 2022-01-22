@@ -27,6 +27,14 @@ export const useFetch = (url) => {
   return { userData, loading };
 };
 
+let test = () => {
+  fetch("http://localhost:3000/user/8")
+    .then((res) => res.json())
+    .then((result) => console.log(result));
+};
+
+test();
+
 const MainContentWrapper = () => {
   const { userData, loading } = useFetch("/assets/DataMock.json");
 
