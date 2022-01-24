@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useParams } from "react-router-dom";
 import KeyDataMetric from "./graphs/KeyDataMetric";
 import UserHeading from "./UserHeading";
 import EnergyLogo from "../assets/squareIcns/keyData/energy.svg";
@@ -9,34 +10,13 @@ import SessionAvgGraph from "./graphs/SessionAvgGraph";
 import PerformanceGraph from "./graphs/PerformanceGraph";
 import ObjectiveGraph from "./graphs/ObjectiveGraph";
 import DailyActivityGraph from "./graphs/DailyActivityGraph";
-
-export const useFetch = (url) => {
-  const [userData, setUserData] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const getUserData = async () => {
-      const response = await fetch(url);
-      const data = await response.json();
-      setUserData(data[34]);
-      setLoading(false);
-    };
-    getUserData();
-  }, [url]);
-
-  return { userData, loading };
-};
-
-let test = () => {
-  fetch("http://localhost:3000/user/8")
-    .then((res) => res.json())
-    .then((result) => console.log(result));
-};
-
-test();
+import useFetch1 from "../ApiCalls";
 
 const MainContentWrapper = () => {
-  const { userData, loading } = useFetch("/assets/DataMock.json");
+  const userId = useParams().id;
+  const { userData, loading } = useFetch1(userId);
+  let user;
+  loading ? (user = null) : (user = userData.data);
 
   return (
     <div className="mainContent__wrapper">
@@ -44,7 +24,7 @@ const MainContentWrapper = () => {
         <div>Loading...</div>
       ) : (
         <div>
-          <UserHeading name={userData.information.firstName} />
+          <UserHeading name={user.userInfos.firstName} />
           <div className="mainContent__graphs">
             <div className="mainGraphs__wrapper">
               <DailyActivityGraph />
@@ -56,25 +36,25 @@ const MainContentWrapper = () => {
             </div>
             <div className="keyData__wrapper">
               <KeyDataMetric
-                metric={userData.keyData.calories}
+                metric={user.keyData.calorieCount}
                 label={"Calories"}
                 classname={"squareIcn squareIcn-keyData calories"}
                 icon={EnergyLogo}
               />
               <KeyDataMetric
-                metric={userData.keyData.proteines}
+                metric={user.keyData.proteinCount}
                 label={"Proteines"}
                 classname={"squareIcn squareIcn-keyData proteines"}
                 icon={ChickenLogo}
               />
               <KeyDataMetric
-                metric={userData.keyData.glucides}
+                metric={user.keyData.carbohydrateCount}
                 label={"Glucides"}
                 classname={"squareIcn squareIcn-keyData glucides"}
                 icon={AppleLogo}
               />
               <KeyDataMetric
-                metric={userData.keyData.lipides}
+                metric={user.keyData.lipidCount}
                 label={"Lipides"}
                 classname={"squareIcn squareIcn-keyData lipides"}
                 icon={CheeseburgerLogo}

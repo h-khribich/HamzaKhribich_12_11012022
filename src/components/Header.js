@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import SportseeLogo from "../assets/sportsee_logo.svg";
 
 const Header = () => {
@@ -7,10 +8,14 @@ const Header = () => {
       <img src={SportseeLogo} alt="" />
       <nav className="header__nav">
         <ul className="header__navlist">
-          <li>Accueil</li>
-          <li>Profil</li>
-          <li>Réglages</li>
-          <li>Communauté</li>
+          <li className="list-item">
+            <Link to="/" className="list-item">
+              Accueil
+            </Link>
+          </li>
+          <li className="list-item">Profil</li>
+          <li className="list-item">Réglages</li>
+          <li className="list-item">Communauté</li>
         </ul>
       </nav>
     </header>

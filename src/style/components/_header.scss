@@ -18,7 +18,8 @@
     font-size: 23px;
     font-weight: 500;
 
-    li {
+    .list-item {
+      color: white;
       cursor: pointer;
       text-decoration-line: none;
       transition: all 200ms ease-in-out;
