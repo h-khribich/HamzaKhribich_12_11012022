@@ -1,69 +1,17 @@
 import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
-const data = [
-  {
-    day: 1,
-    poids: 70,
-    calories: 65,
-  },
-  {
-    day: 2,
-    poids: 68,
-    calories: 50,
-  },
-  {
-    day: 3,
-    poids: 67,
-    calories: 78,
-  },
-  {
-    day: 4,
-    poids: 62,
-    calories: 45,
-  },
-  {
-    day: 5,
-    poids: 68,
-    calories: 55,
-  },
-  {
-    day: 6,
-    poids: 70,
-    calories: 58,
-  },
-  {
-    day: 7,
-    poids: 72,
-    calories: 65,
-  },
-  {
-    day: 8,
-    poids: 71,
-    calories: 63,
-  },
-  {
-    day: 9,
-    poids: 70,
-    calories: 78,
-  },
-  {
-    day: 10,
-    poids: 70,
-    calories: 60,
-  },
-];
+const DailyActivityGraph = ({ activity }) => {
+  const dailyActivity = activity.userData.data.sessions;
 
-const DailyActivityGraph = () => {
+  const formattedDailyActivity = dailyActivity.map((item, i) => {
+    const { day, ...rest } = item;
+    return {
+      day: i + 1,
+      ...rest,
+    };
+  });
+
   return (
     <div className="dailyActivityGraph">
       <span className="dailyActivityGraph__label">Activité quotidienne</span>
@@ -103,7 +51,7 @@ const DailyActivityGraph = () => {
       <BarChart
         width={780}
         height={240}
-        data={data}
+        data={formattedDailyActivity}
         margin={{ top: 20, bottom: 30 }}
       >
         <CartesianGrid strokeDasharray="2 2" vertical={false} />
@@ -122,12 +70,12 @@ const DailyActivityGraph = () => {
           axisLine={false}
           tickLine={false}
           type="number"
-          domain={["dataMin - 10", "auto"]}
+          domain={["dataMin", "auto"]}
           tick={{ fontSize: "14px", fill: "#9B9EAC" }}
         />
         <Tooltip content={customTooltip} />
         <Bar
-          dataKey="poids"
+          dataKey="kilogram"
           fill="#282D30"
           barSize={7}
           legendType="circle"
@@ -150,7 +98,7 @@ function customTooltip({ active, payload }) {
     return (
       <div className="dailyActivityGraph__tooltip">
         <h4 className="dailyActivityGraph__value">
-          {payload[0].payload.poids}kg
+          {payload[0].payload.kilogram}kg
         </h4>
         <h4 className="dailyActivityGraph__value">
           {payload[0].payload.calories}kCal

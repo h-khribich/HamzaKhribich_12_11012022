@@ -1,45 +1,17 @@
 import React from "react";
 import { LineChart, Line, YAxis, Tooltip } from "recharts";
+import PropTypes from "prop-types";
 
-const data = [
-  {
-    day: "L",
-    time: 35,
-  },
-  {
-    day: "M",
-    time: 55,
-  },
-  {
-    day: "M",
-    time: 30,
-  },
-  {
-    day: "J",
-    time: 44,
-  },
-  {
-    day: "V",
-    time: 69,
-  },
-  {
-    day: "S",
-    time: 45,
-  },
-  {
-    day: "D",
-    time: 35,
-  },
-];
+const SessionAvgGraph = ({ sessionAverage }) => {
+  const sessions = sessionAverage.userData.data.sessions;
 
-const SessionAvgGraph = () => {
   return (
     <div className="sessionAverageGraph" style={{ width: "fit-content" }}>
       <span className="sessionAverageGraph__label">L M M J V S D</span>
       <LineChart
         width={258}
         height={263}
-        data={data}
+        data={sessions}
         style={{ backgroundColor: "#FF0000", borderRadius: "5px" }}
         margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
       >
@@ -74,7 +46,7 @@ const SessionAvgGraph = () => {
           </linearGradient>
         </defs>
         <YAxis
-          dataKey="time"
+          dataKey="sessionLength"
           hide={true}
           type="number"
           padding={{ bottom: 80, top: 30 }}
@@ -91,7 +63,7 @@ const SessionAvgGraph = () => {
         />
         <Line
           type="natural"
-          dataKey="time"
+          dataKey="sessionLength"
           dot={false}
           strokeWidth={2}
           stroke="url(#line-color)"
@@ -113,7 +85,7 @@ function CustomTooltip({ active, payload }) {
     return (
       <div className="sessionAverageGraph__tooltip">
         <h4 className="sessionAverageGraph__value">
-          {payload[0].payload.time} min
+          {payload[0].payload.sessionLength} min
         </h4>
       </div>
     );
@@ -121,5 +93,20 @@ function CustomTooltip({ active, payload }) {
     return null;
   }
 }
+
+SessionAvgGraph.propTypes = {
+  userData: PropTypes.shape({
+    data: PropTypes.shape({
+      userId: PropTypes.number,
+      sessions: PropTypes.arrayOf(
+        PropTypes.shape({
+          day: PropTypes.number,
+          sessionLength: PropTypes.string,
+        })
+      ),
+    }),
+  }),
+  loading: PropTypes.bool,
+};
 
 export default SessionAvgGraph;

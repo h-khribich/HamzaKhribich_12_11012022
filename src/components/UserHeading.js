@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const UserHeading = (props) => {
   return (
@@ -11,6 +12,14 @@ const UserHeading = (props) => {
       </p>
     </div>
   );
+};
+
+UserHeading.propTypes = {
+  name: PropTypes.string,
+};
+
+UserHeading.defaultProps = {
+  name: "Champion",
 };
 
 export default UserHeading;

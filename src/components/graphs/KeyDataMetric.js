@@ -1,5 +1,6 @@
 import React from "react";
 import SquareIcn from "../SquareIcn";
+import PropTypes from "prop-types";
 
 const KeyDataMetric = (props) => {
   return (
@@ -11,6 +12,13 @@ const KeyDataMetric = (props) => {
       </div>
     </div>
   );
+};
+
+KeyDataMetric.propTypes = {
+  metric: PropTypes.number,
+  icon: PropTypes.string,
+  label: PropTypes.string,
+  classname: PropTypes.string,
 };
 
 export default KeyDataMetric;

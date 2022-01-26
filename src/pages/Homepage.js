@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (
-    <div style={{ display: "flex", height: "100vh" }}>
+    <div style={{ display: "flex", height: "500px" }}>
       <Aside />
       <nav style={{ padding: "120px" }}>
         <h1

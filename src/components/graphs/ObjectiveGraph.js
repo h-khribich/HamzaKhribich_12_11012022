@@ -1,13 +1,8 @@
 import React from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
+import PropTypes from "prop-types";
 
-const data = [
-  {
-    score: 0.37,
-  },
-];
-
-const ObjectiveGraph = () => {
+const ObjectiveGraph = ({ score }) => {
   return (
     <div>
       <RadialBarChart
@@ -15,7 +10,7 @@ const ObjectiveGraph = () => {
         height={263}
         innerRadius={75}
         barSize={10}
-        data={data}
+        data={[{ score }]}
         startAngle={90}
         endAngle={90 + 360}
         style={{ backgroundColor: "#FBFBFB", borderRadius: "5px" }}
@@ -38,7 +33,7 @@ const ObjectiveGraph = () => {
             fill="#282D30"
             style={{ fontSize: "19px", fontWeight: 600 }}
           >
-            {data[0].score * 100}%
+            {score * 100}%
           </tspan>
           <tspan x="50%" dy="26" fill="#74798C">
             de votre
@@ -51,6 +46,10 @@ const ObjectiveGraph = () => {
       </RadialBarChart>
     </div>
   );
+};
+
+ObjectiveGraph.propTypes = {
+  score: PropTypes.number,
 };
 
 export default ObjectiveGraph;

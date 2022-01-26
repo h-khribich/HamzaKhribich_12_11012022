@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const useFetch1 = (userId) => {
+export const useFetch = (userId) => {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -16,5 +16,3 @@ const useFetch1 = (userId) => {
 
   return { userData, loading };
 };
-
-export default useFetch1;

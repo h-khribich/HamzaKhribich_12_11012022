@@ -10,28 +10,32 @@ import SessionAvgGraph from "./graphs/SessionAvgGraph";
 import PerformanceGraph from "./graphs/PerformanceGraph";
 import ObjectiveGraph from "./graphs/ObjectiveGraph";
 import DailyActivityGraph from "./graphs/DailyActivityGraph";
-import useFetch1 from "../ApiCalls";
+import { useFetch } from "../ApiCalls";
 
 const MainContentWrapper = () => {
   const userId = useParams().id;
-  const { userData, loading } = useFetch1(userId);
+  const activity = useFetch(`${userId}/activity`);
+  const sessionAverage = useFetch(`${userId}/average-sessions`);
+  const keyInfo = useFetch(userId);
+
+  // Shortening word use of object
   let user;
-  loading ? (user = null) : (user = userData.data);
+  keyInfo.loading ? (user = null) : (user = keyInfo.userData.data);
 
   return (
     <div className="mainContent__wrapper">
-      {loading ? (
+      {keyInfo.loading || sessionAverage.loading || activity.loading ? (
         <div>Loading...</div>
       ) : (
         <div>
           <UserHeading name={user.userInfos.firstName} />
           <div className="mainContent__graphs">
             <div className="mainGraphs__wrapper">
-              <DailyActivityGraph />
+              <DailyActivityGraph activity={activity} />
               <div className="mainGraphs__smaller-group">
-                <SessionAvgGraph />
+                <SessionAvgGraph sessionAverage={sessionAverage} />
                 <PerformanceGraph />
-                <ObjectiveGraph />
+                <ObjectiveGraph score={user.todayScore || user.score} />
               </div>
             </div>
             <div className="keyData__wrapper">
