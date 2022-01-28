@@ -16,15 +16,19 @@ const MainContentWrapper = () => {
   const userId = useParams().id;
   const activity = useFetch(`${userId}/activity`);
   const sessionAverage = useFetch(`${userId}/average-sessions`);
+  const performance = useFetch(`${userId}/performance`);
   const keyInfo = useFetch(userId);
 
-  // Shortening word use of object
+  // Shortening word use of object after loading
   let user;
   keyInfo.loading ? (user = null) : (user = keyInfo.userData.data);
 
   return (
     <div className="mainContent__wrapper">
-      {keyInfo.loading || sessionAverage.loading || activity.loading ? (
+      {keyInfo.loading ||
+      sessionAverage.loading ||
+      activity.loading ||
+      performance.loading ? (
         <div>Loading...</div>
       ) : (
         <div>
@@ -34,7 +38,7 @@ const MainContentWrapper = () => {
               <DailyActivityGraph activity={activity} />
               <div className="mainGraphs__smaller-group">
                 <SessionAvgGraph sessionAverage={sessionAverage} />
-                <PerformanceGraph />
+                <PerformanceGraph performance={performance} />
                 <ObjectiveGraph score={user.todayScore || user.score} />
               </div>
             </div>
