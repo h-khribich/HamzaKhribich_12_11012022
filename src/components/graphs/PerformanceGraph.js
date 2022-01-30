@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import PropTypes from "prop-types";
 import {
   Radar,
   RadarChart,
@@ -11,7 +12,7 @@ import {
  * Performance graph component
  * @param {Object} performance - User performance.
  */
-const PerformanceChart = ({ performance }) => {
+const PerformanceGraph = ({ performance }) => {
   const objProp = performance.userData.data;
 
   useEffect(() => {
@@ -77,4 +78,17 @@ const PerformanceChart = ({ performance }) => {
   );
 };
 
-export default PerformanceChart;
+PerformanceGraph.propTypes = {
+  performance: PropTypes.shape({
+    loading: PropTypes.bool,
+    userData: PropTypes.shape({
+      data: PropTypes.shape({
+        userId: PropTypes.number,
+        data: PropTypes.arrayOf(PropTypes.object),
+        kind: PropTypes.shape({}),
+      }),
+    }),
+  }),
+};
+
+export default PerformanceGraph;

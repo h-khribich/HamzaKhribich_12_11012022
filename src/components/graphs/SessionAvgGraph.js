@@ -104,18 +104,15 @@ function CustomTooltip({ active, payload }) {
 }
 
 SessionAvgGraph.propTypes = {
-  userData: PropTypes.shape({
-    data: PropTypes.shape({
-      userId: PropTypes.number,
-      sessions: PropTypes.arrayOf(
-        PropTypes.shape({
-          day: PropTypes.number,
-          sessionLength: PropTypes.string,
-        })
-      ),
+  sessionAverage: PropTypes.shape({
+    loading: PropTypes.bool,
+    userData: PropTypes.shape({
+      data: PropTypes.shape({
+        userId: PropTypes.number,
+        sessions: PropTypes.arrayOf(PropTypes.object),
+      }),
     }),
   }),
-  loading: PropTypes.bool,
 };
 
 export default SessionAvgGraph;

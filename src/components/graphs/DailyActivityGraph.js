@@ -1,5 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import PropTypes from "prop-types";
 
 /**
  * Daily activity graph component
@@ -132,5 +133,17 @@ function customTooltip({ active, payload }) {
     return null;
   }
 }
+
+DailyActivityGraph.propTypes = {
+  activity: PropTypes.shape({
+    loading: PropTypes.bool,
+    userData: PropTypes.shape({
+      data: PropTypes.shape({
+        userId: PropTypes.number,
+        sessions: PropTypes.arrayOf(PropTypes.object),
+      }),
+    }),
+  }),
+};
 
 export default DailyActivityGraph;

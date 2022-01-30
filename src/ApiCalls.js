@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 /**
  * Use fetch component to which several endpoints can accessed by concatenating userId param and string endpoint, the loading state enables to ensure data is accessible
  * @param {string} userId - User id.
+ * @async - Asynchronous function
  * @returns {Object} User data for the specified endpoint (key data is returned if no other endpoints are provided)
  * @example `http://localhost:3000/user/${userId}/performance`
  */
