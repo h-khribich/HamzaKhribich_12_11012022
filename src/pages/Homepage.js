@@ -7,40 +7,51 @@ import { Link } from "react-router-dom";
  */
 const Homepage = () => {
   return (
-    <div style={{ display: "flex", height: "500px" }}>
+    <div style={{ display: "flex", height: "100vh" }}>
       <Aside />
       <nav style={{ padding: "120px" }}>
         <h1
           style={{
+            fontSize: "45px",
+            color: "#E60000",
+            fontWeight: 700,
+            paddingBottom: "50px",
+            margin: "20px",
+          }}
+        >
+          Bienvenue
+        </h1>
+        <h2
+          style={{
             fontSize: "30px",
             color: "black",
-            fontWeight: 700,
+            fontWeight: 500,
             margin: "20px",
           }}
         >
           Utilisateurs
-        </h1>
+        </h2>
         <Link
           to="user/12"
           style={{
             fontSize: "24px",
-            color: "#E60000",
+            color: "#74798C",
             margin: "20px",
             fontWeight: 500,
           }}
         >
-          User 1
+          Profil 1
         </Link>
         <Link
           to="user/18"
           style={{
             fontSize: "24px",
-            color: "#E60000",
+            color: "#74798C",
             margin: "20px",
             fontWeight: 500,
           }}
         >
-          User 2
+          Profil 2
         </Link>
       </nav>
     </div>

@@ -7,11 +7,17 @@ import PropTypes from "prop-types";
  * @param {Object} props - User metric, component label, classname and icon.
  */
 const KeyDataMetric = (props) => {
+  // Defining type of value mesure
+  const mesure = props.label === "Calories" ? "kCal" : "g";
+
   return (
     <div className="keyData__metric">
       <SquareIcn classname={props.classname} icon={props.icon} />
       <div className="keyData__descriptionWrapper">
-        <span className="keyData__number">{props.metric}</span>
+        <span className="keyData__number">
+          {props.metric}
+          {mesure}
+        </span>
         <span className="keyData__description">{props.label}</span>
       </div>
     </div>

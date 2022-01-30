@@ -55,3 +55,7 @@ _Read the repository documentation on readme to launch API with Docker or NPM_
 - Clicking on the 'Accueil' button will redirect you to the homepage in which you may switch the user data displayed./
 - At the moment, only 2 user data are mocked within the API (IDs 12 | 18), clicking on the first or second link will display the relevant user ID in the page URL
 - The useFetch() function will then display the content thanks to the ID present in the URL
+
+## Documentation
+
+- The project is documented on this [gitHub page](https://h-khribich.github.io/HamzaKhribich_12_11012022/) with the help of [jsDoc](https://github.com/jsdoc/jsdoc)
