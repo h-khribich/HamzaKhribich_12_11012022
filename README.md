@@ -1,23 +1,37 @@
-# Getting Started with Create React App
+# SportSee - Metric analytics dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This single page application displays a user's monitored physiological metrics, objective scores and activity sessions. It is the 12th project in the OpenClassrooms Front-End curriculum.
+
+## Getting Started
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app)
+and uses
+
+- React (17.0.2)
+- Recharts (2.1.8)
+- Sass (1.47.0)
+
+We recommend to use [Visual Studio Code](https://code.visualstudio.com/) as an IDE (integrated development environment) to edit and launch this project and use the lastest version of [Chrome](https://www.google.fr/chrome/) browser with the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/) plugin
+
+## Prerequisites
+
+- [NodeJS (version 16+)](https://nodejs.org/en/download/)
 
 ## Available Scripts
 
 In the project directory, you can run:
 
+### `npm install`
+
+Install each dependencies to launch this project
+
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The page will reload if you make edits.\
+It will also display any lint errors in the console.
 
 ### `npm run build`
 
@@ -29,42 +43,15 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+## Install API
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+You can clone the backend API in your folder with this git command  
+`$ git clone https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard.git .`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+_Read the repository documentation on readme to launch API with Docker or NPM_
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Interacting with the application
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Clicking on the 'Accueil' button will redirect you to the homepage in which you may switch the user data displayed./
+- At the moment, only 2 user data are mocked within the API (IDs 12 | 18), clicking on the first or second link will display the relevant user ID in the page URL
+- The useFetch() function will then display the content thanks to the ID present in the URL

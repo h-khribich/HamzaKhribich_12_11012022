@@ -2,6 +2,9 @@ import React from "react";
 import Aside from "../components/Aside";
 import { Link } from "react-router-dom";
 
+/**
+ * Homepage which enables the changing of user profile displayed
+ */
 const Homepage = () => {
   return (
     <div style={{ display: "flex", height: "500px" }}>

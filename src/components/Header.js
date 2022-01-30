@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SportseeLogo from "../assets/sportsee_logo.svg";
 
+/**
+ * Header component
+ */
 const Header = () => {
   return (
     <header className="header">

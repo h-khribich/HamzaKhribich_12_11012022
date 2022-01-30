@@ -1,10 +1,17 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
+/**
+ * Daily activity graph component
+ * @param {Object} activity - User daily activity.
+ */
 const DailyActivityGraph = ({ activity }) => {
   const dailyActivity = activity.userData.data.sessions;
 
-  // Format days for chart X axis
+  /**
+    Format 'days' value to add 1, as the index starts at 0
+    @returns {Array} Formatted data with 'days' starting at 1
+   */
   const formattedDailyActivity = dailyActivity.map((item, i) => {
     const { day, ...rest } = item;
     return {
@@ -104,6 +111,11 @@ const DailyActivityGraph = ({ activity }) => {
   );
 };
 
+/**
+ * Daily activity graph custom tooltip on hover
+ * @param {boolean} active - Whether the tooltip should be shown or not.
+ * @param {object} payload - The data included within the payload.
+ */
 function customTooltip({ active, payload }) {
   if (active) {
     return (

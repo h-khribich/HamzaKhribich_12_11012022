@@ -7,13 +7,18 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
+/**
+ * Performance graph component
+ * @param {Object} performance - User performance.
+ */
 const PerformanceChart = ({ performance }) => {
   const objProp = performance.userData.data;
 
-  /*
-    The function within use effect will in the first part match and replace both objects 'kind' data to know which value is for which kind . It will then translate the 'kind' values now within the first obj. The obj data is then reversed to match how it is displayed in the model
-  */
   useEffect(() => {
+    /**
+   The function will first match and replace both objects 'kind' data to know which value is for which kind . It will then translate the 'kind' values now within the first obj. The obj data is then reversed to match how it is displayed in the model
+   @returns {Object} Formatted user data
+   */
     const propFormatting = () => {
       // Part 1: Matching and replacing kind value (1st obj) and kind key(2nd obj)
       for (const [key, value] of Object.entries(objProp.kind)) {

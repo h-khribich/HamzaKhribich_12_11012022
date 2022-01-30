@@ -12,6 +12,9 @@ import ObjectiveGraph from "./graphs/ObjectiveGraph";
 import DailyActivityGraph from "./graphs/DailyActivityGraph";
 import { useFetch } from "../ApiCalls";
 
+/**
+ * Main content excluding Aside component
+ */
 const MainContentWrapper = () => {
   const userId = useParams().id;
   const activity = useFetch(`${userId}/activity`);

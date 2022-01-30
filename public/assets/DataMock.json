@@ -6,7 +6,7 @@
       "lastName": "Malignon",
       "age": 27
     },
-    "todayScore": 56,
+    "todayScore": 0.35,
     "keyData": {
       "calories": "1937kCal",
       "proteines": "155g",
@@ -41,6 +41,32 @@
       {
         "day": "D",
         "time": 45
+      }
+    ],
+    "performance": [
+      {
+        "kind": "Vitesse",
+        "value": 45
+      },
+      {
+        "kind": "Intensité",
+        "value": 55
+      },
+      {
+        "kind": "Force",
+        "value": 40
+      },
+      {
+        "kind": "Cardio",
+        "value": 34
+      },
+      {
+        "kind": "Endurance",
+        "value": 39
+      },
+      {
+        "kind": "Energie",
+        "value": 55
       }
     ]
   }

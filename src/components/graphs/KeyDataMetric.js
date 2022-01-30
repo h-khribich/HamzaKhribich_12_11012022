@@ -2,6 +2,10 @@ import React from "react";
 import SquareIcn from "../SquareIcn";
 import PropTypes from "prop-types";
 
+/**
+ * Key data metric graph component
+ * @param {Object} props - User metric, component label, classname and icon.
+ */
 const KeyDataMetric = (props) => {
   return (
     <div className="keyData__metric">

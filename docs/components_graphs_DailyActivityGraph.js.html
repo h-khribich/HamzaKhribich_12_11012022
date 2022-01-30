@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: components/graphs/DailyActivityGraph.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: components/graphs/DailyActivityGraph.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from "react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+
+/**
+ * Daily activity graph component
+ * @param {Object} activity - User daily activity.
+ */
+const DailyActivityGraph = ({ activity }) => {
+  const dailyActivity = activity.userData.data.sessions;
+
+  /**
+    Format 'days' value to add 1, as the index starts at 0
+    @returns {Array} Formatted data with 'days' starting at 1
+   */
+  const formattedDailyActivity = dailyActivity.map((item, i) => {
+    const { day, ...rest } = item;
+    return {
+      day: i + 1,
+      ...rest,
+    };
+  });
+
+  return (
+    &lt;div className="dailyActivityGraph">
+      &lt;span className="dailyActivityGraph__label">Activité quotidienne&lt;/span>
+      &lt;div
+        style={{
+          position: "absolute",
+          marginBottom: "267px",
+          marginLeft: "500px",
+          display: "flex",
+        }}
+      >
+        &lt;span style={{ fontSize: "13px", fontWeight: 500, color: "#74798C" }}>
+          &lt;i
+            className="fas fa-circle fa-xs"
+            style={{
+              paddingRight: "13px",
+              color: "#282D30",
+            }}
+          >&lt;/i>
+          Poids (kg)
+        &lt;/span>
+        &lt;span
+          style={{
+            fontSize: "13px",
+            marginLeft: "30px",
+            fontWeight: 500,
+            color: "#74798C",
+          }}
+        >
+          &lt;i
+            className="fas fa-circle fa-xs"
+            style={{ paddingRight: "13px", color: "#E60000" }}
+          >&lt;/i>
+          Calories brûlées (kCal)
+        &lt;/span>
+      &lt;/div>
+      &lt;BarChart
+        width={780}
+        height={240}
+        data={formattedDailyActivity}
+        margin={{ top: 20, bottom: 30 }}
+      >
+        &lt;CartesianGrid strokeDasharray="2 2" vertical={false} />
+        &lt;XAxis
+          dataKey="day"
+          tickMargin={10}
+          tickLine={false}
+          stroke="#DEDEDE"
+          axisLine={true}
+          tick={{ fontSize: "14px", fill: "#9B9EAC" }}
+        />
+        &lt;YAxis
+          dataKey="calories"
+          yAxisId="calories"
+          hide={true}
+          tickCount={3}
+        />
+        &lt;YAxis
+          dataKey="kilogram"
+          orientation="right"
+          tickMargin={30}
+          tickCount={3}
+          axisLine={false}
+          tickLine={false}
+          yAxisId="kilogram"
+          type="number"
+          domain={["dataMin - 3", "auto"]}
+          tick={{ fontSize: "14px", fill: "#9B9EAC" }}
+        />
+        &lt;Tooltip content={customTooltip} />
+        &lt;Bar
+          dataKey="kilogram"
+          fill="#282D30"
+          yAxisId="kilogram"
+          barSize={7}
+          legendType="circle"
+          radius={[10, 10, 0, 0]}
+        />
+        &lt;Bar
+          dataKey="calories"
+          fill="#E60000"
+          yAxisId="calories"
+          barSize={7}
+          legendType="circle"
+          radius={[10, 10, 0, 0]}
+        />
+      &lt;/BarChart>
+    &lt;/div>
+  );
+};
+
+/**
+ * Daily activity graph custom tooltip on hover
+ * @param {boolean} active - Whether the tooltip should be shown or not.
+ * @param {object} payload - The data included within the payload.
+ */
+function customTooltip({ active, payload }) {
+  if (active) {
+    return (
+      &lt;div className="dailyActivityGraph__tooltip">
+        &lt;h4 className="dailyActivityGraph__value">
+          {payload[0].payload.kilogram}kg
+        &lt;/h4>
+        &lt;h4 className="dailyActivityGraph__value">
+          {payload[0].payload.calories}kCal
+        &lt;/h4>
+      &lt;/div>
+    );
+  } else {
+    return null;
+  }
+}
+
+export default DailyActivityGraph;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#Aside">Aside</a></li><li><a href="global.html#customTooltip">customTooltip</a></li><li><a href="global.html#CustomTooltip">CustomTooltip</a></li><li><a href="global.html#DailyActivityGraph">DailyActivityGraph</a></li><li><a href="global.html#Dashboard">Dashboard</a></li><li><a href="global.html#Header">Header</a></li><li><a href="global.html#Homepage">Homepage</a></li><li><a href="global.html#KeyDataMetric">KeyDataMetric</a></li><li><a href="global.html#MainContentWrapper">MainContentWrapper</a></li><li><a href="global.html#ObjectiveGraph">ObjectiveGraph</a></li><li><a href="global.html#PerformanceChart">PerformanceChart</a></li><li><a href="global.html#SessionAvgGraph">SessionAvgGraph</a></li><li><a href="global.html#SquareIcn">SquareIcn</a></li><li><a href="global.html#useFetch">useFetch</a></li><li><a href="global.html#UserHeading">UserHeading</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.10</a> on Sun Jan 30 2022 18:45:28 GMT+0100 (heure normale d’Europe centrale)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

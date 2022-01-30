@@ -2,6 +2,10 @@ import React from "react";
 import { RadialBarChart, RadialBar, PolarAngleAxis } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Objective graph component
+ * @param {number} score - User score.
+ */
 const ObjectiveGraph = ({ score }) => {
   return (
     <div>

@@ -2,6 +2,10 @@ import React from "react";
 import { LineChart, Line, YAxis, Tooltip } from "recharts";
 import PropTypes from "prop-types";
 
+/**
+ * Session average graph component
+ * @param {Object} sessionAverage - User session average.
+ */
 const SessionAvgGraph = ({ sessionAverage }) => {
   const sessions = sessionAverage.userData.data.sessions;
 
@@ -80,6 +84,11 @@ const SessionAvgGraph = ({ sessionAverage }) => {
   );
 };
 
+/**
+ * Session average custom tooltip on hover
+ * @param {boolean} active - Whether the tooltip should be shown or not.
+ * @param {object} payload - The data included within the payload.
+ */
 function CustomTooltip({ active, payload }) {
   if (active) {
     return (

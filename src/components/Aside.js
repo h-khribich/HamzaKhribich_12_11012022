@@ -5,6 +5,9 @@ import Swimming from "../assets/squareIcns/aside/swimming.svg";
 import Biking from "../assets/squareIcns/aside/biking.svg";
 import Lifting from "../assets/squareIcns/aside/lifting.svg";
 
+/**
+ * Left-side icon list
+ */
 const Aside = () => {
   return (
     <aside className="aside">

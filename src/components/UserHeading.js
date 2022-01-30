@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * User heading greeting user
+ * @param {Object} props - User firstname.
+ */
 const UserHeading = (props) => {
   return (
     <div className="userHeading">
